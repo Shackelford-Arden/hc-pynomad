@@ -30,4 +30,4 @@ jobs:
           poetry run pylint pynomad/
       - name: Test with pytest
         run: |
-          poetry run pytest --cov=irv2 tests/ --junitxml=report.xml --cov-report xml
+          poetry run pytest --cov=pynomad tests/ --junitxml=report.xml --cov-report xml
