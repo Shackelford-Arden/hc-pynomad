@@ -16,6 +16,7 @@ pylint = "^2.12.2"
 flake8 = "^4.0.1"
 mypy = "^0.931"
 types-requests = "^2.27.10"
+respx = "^0.19.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

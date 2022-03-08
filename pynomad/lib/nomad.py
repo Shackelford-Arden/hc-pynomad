@@ -44,9 +44,10 @@ class Nomad:
         if self.namespace:
             params = {'namespace': self.namespace}
 
+        url = f'{self.address}/v1{endpoint}'
         try:
 
-            response = httpx.get(f'{self.address}/v1{endpoint}', headers=self.headers, params=params)
+            response = httpx.get(url, headers=self.headers, params=params)
 
             response.raise_for_status()
 
