@@ -26,7 +26,7 @@ jobs:
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          flake8 pynomad/
+          poetry run flake8 pynomad/
       - name: Test with pytest
         run: |
           pytest --cov=irv2 tests/ --junitxml=report.xml --cov-report xml
