@@ -16,7 +16,15 @@ pylint = "^2.12.2"
 flake8 = "^4.0.1"
 mypy = "^0.931"
 types-requests = "^2.27.10"
+respx = "^0.19.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "missing-module-docstring,missing-class-docstring,unnecessary-pass,raise-missing-from,too-few-public-methods"
+extension-pkg-whitelist = "pydantic"
+
+[tool.pylint.'FORMAT']
+max-line-length = 150
