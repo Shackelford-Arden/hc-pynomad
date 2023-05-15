@@ -3,9 +3,9 @@ from typing import List
 
 from httpx import HTTPStatusError
 
-from pynomad.exceptions.base import NomadAgentError
-from pynomad.lib.nomad import Nomad
-from pynomad.models.agent_models import Members, Self
+from hc_pynomad.exceptions.base import NomadAgentError
+from hc_pynomad.lib.nomad import Nomad
+from hc_pynomad.models.agent_models import Members, Self
 
 
 @dataclass
