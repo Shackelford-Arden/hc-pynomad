@@ -6,8 +6,8 @@ authors = ["Arden Shackelford <arden@ardens.tech>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9,<=4.0"
-pydantic = "^1.9.0"
+python = "^3.10,<=4.0"
+pydantic = "^2.4.2"
 httpx = "^0.22.0"
 
 [tool.poetry.group.testing.dependencies]

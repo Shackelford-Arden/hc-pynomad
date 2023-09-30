@@ -11,4 +11,4 @@ class TestJobModel(unittest.TestCase):
             jobspec = job_json.read()
 
         jobspec = json.loads(jobspec)
-        Job.parse_obj(jobspec.get('Job'))
+        Job.model_validate(jobspec.get('Job'))

@@ -1,16 +1,16 @@
-from typing import List, Optional
 
-from pydantic import BaseModel, Field, validator
+from typing import Optional
 
-
-# pylint: disable=no-self-argument,missing-function-docstring,no-self-use
+from pydantic import BaseModel
+from pydantic import Field
+from pydantic import field_validator
 
 
 class Member(BaseModel):
     name: str = Field(..., alias='Name')
     addr: str = Field(..., alias='Addr')
     port: int = Field(..., alias='Port')
-    tags: dict = Field(default={}, alias='Tags')
+    tags: dict = Field(default_factory=dict, alias='Tags')
     status: str = Field(..., alias='Status')
     protocol_min: int = Field(..., alias='ProtocolMin')
     protocol_max: int = Field(..., alias='ProtocolMax')
@@ -19,13 +19,13 @@ class Member(BaseModel):
     delegate_max: int = Field(..., alias='DelegateMax')
     delegate_cur: int = Field(..., alias='DelegateCur')
 
-    @validator('tags', pre=True)
+    @field_validator('tags', mode='before')
     def null_dict(cls, value):
         if value is None:
             return {}
         return value
 
-    @validator('addr', pre=True)
+    @field_validator('addr', mode='before')
     def empty_addr(cls, value):
         if value is None:
             return ""
@@ -36,7 +36,7 @@ class Members(BaseModel):
     server_name: str = Field(..., alias='ServerName')
     server_region: str = Field(..., alias='ServerRegion')
     server_dc: str = Field(..., alias='ServerDC')
-    members: List[Member] = Field(default=[], alias='Members')
+    members: list[Member] = Field(default_factory=list, alias='Members')
 
 
 class Addresses(BaseModel):
@@ -50,9 +50,9 @@ class Reserved(BaseModel):
     cores: int = Field(..., alias='Cores')
     disk_mb: int = Field(..., alias='DiskMB')
     memory_mb: int = Field(..., alias='MemoryMB')
-    parsed_reserved_ports: Optional[list] = Field(default=[], alias='ParsedReservedPorts')
+    parsed_reserved_ports: Optional[list] = Field(default_factory=list, alias='ParsedReservedPorts')
 
-    @validator('parsed_reserved_ports', pre=True)
+    @field_validator('parsed_reserved_ports', mode='before')
     def null_reserved_ports(cls, value):
         if value is None:
             return []
@@ -61,7 +61,7 @@ class Reserved(BaseModel):
 
 class ConfigClient(BaseModel):
     alloc_dir: str = Field(..., alias='AllocDir')
-    chroot_env: Optional[dict] = Field(default={}, alias='ChrooEnv')
+    chroot_env: Optional[dict] = Field(default_factory=dict, alias='ChrooEnv')
     client_max_port: int = Field(..., alias='ClientMaxPort')
     client_min_port: int = Field(..., alias='ClientMinPort')
     disable_remote_exec: bool = Field(default=False, alias='DisableRemoteExec')
@@ -86,16 +86,16 @@ class AgentACL(BaseModel):
 
 class AgentAuditConfig(BaseModel):
     enabled: bool = Field(default=False, alias='Enabled')
-    filters: list = Field(default=[], alias='Filters')
-    sinks: list = Field(default=[], alias='Sinks')
+    filters: list = Field(default_factory=list, alias='Filters')
+    sinks: list = Field(default_factory=list, alias='Sinks')
 
-    @validator('enabled', pre=True)
+    @field_validator('enabled', mode='before')
     def enabled_null(cls, value):
         if value is None:
             return False
         return value
 
-    @validator('filters', 'sinks', pre=True)
+    @field_validator('filters', 'sinks', mode='before')
     def null_lists(cls, value):
         if value is None:
             return []
@@ -103,7 +103,7 @@ class AgentAuditConfig(BaseModel):
 
 
 class AgentConfig(BaseModel):
-    acl: Optional[AgentACL] = Field(efault=None, alias='ACL')
+    acl: Optional[AgentACL] = Field(None, efault=None, alias='ACL')
     addresses: Addresses = Field(..., alias='Addresses')
     advertised_addrs: Addresses = Field(..., alias='AdvertiseAddrs')
     audit: AgentAuditConfig = Field(..., alias='Audit')
