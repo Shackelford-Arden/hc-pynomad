@@ -3,6 +3,7 @@ from pydantic import ConfigDict
 from pydantic import Field
 
 
+# TODO Set most models to use this as the default
 class SimpleBase(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
