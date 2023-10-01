@@ -26,7 +26,7 @@ class Nomad:
     )
     headers: Optional[dict] = Field(default_factory=dict, description='Custom headers to include on each request.')
 
-    def call(self, endpoint: str, verb: str, **kwargs) -> Any:
+    def call(self, endpoint: str, verb: str, **kwargs) -> httpx.Response:
         """
         Generic call to the Nomad API.
 
@@ -53,6 +53,7 @@ class Nomad:
         params = {}
         if 'params' in kwargs.keys():
             params = kwargs.get('params')
+            del kwargs['params']
 
         if not params.get('namespace') and self.namespace:
             params['namespace'] = self.namespace
@@ -83,4 +84,4 @@ class Nomad:
                 )
             raise http_error
 
-        return response.json()
+        return response

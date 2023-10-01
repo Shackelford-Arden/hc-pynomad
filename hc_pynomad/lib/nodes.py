@@ -1,24 +1,55 @@
 from pydantic.dataclasses import dataclass
 
 from hc_pynomad import Nomad
+from hc_pynomad.models.nodes import NodesList
 
 
 @dataclass
 class Nodes(Nomad):
     """Client to interact with the /v1/nodes endpoint."""
 
-    def list_nodes(self):
+    def list_nodes(self,
+                   prefix: str = None, next_token: str = None,
+                   per_page: int = 0, filter: str = None,
+                   resources: bool = False, os: bool = False
+                   ) -> NodesList:
         """
         API Docs: https://developer.hashicorp.com/nomad/api-docs/nodes#list-nodes
 
         Parameters
         ----------
+        prefix: str = None
+        next_token: str = None
+        per_page: int = 0
+        filter: str = None
+        resources: bool = False
+        os: bool = False
 
         Returns
         -------
-
+        nodes: NodesList
         """
-        pass
+
+        params = {
+            'resources': resources,
+            'os': os
+        }
+
+        if prefix:
+            params['prefix'] = prefix
+
+        if next_token:
+            params['next_token'] = next_token
+
+        if per_page:
+            params['per_page'] = per_page
+
+        if filter:
+            params['filter'] = filter
+
+        results = self.call(endpoint='/nodes', verb='GET', params=params).json()
+
+        return NodesList.model_validate(results)
 
     def read_node(self):
         """

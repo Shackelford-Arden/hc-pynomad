@@ -1,0 +1,323 @@
+{
+  "Attributes": {
+    "consul.datacenter": "dc1",
+    "consul.revision": "d2adfc0bd",
+    "consul.server": "true",
+    "consul.version": "1.5.2",
+    "cpu.arch": "amd64",
+    "cpu.frequency": "4000",
+    "cpu.modelname": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+    "cpu.numcores": "8",
+    "cpu.totalcompute": "32000",
+    "driver.docker": "1",
+    "driver.docker.bridge_ip": "172.17.0.1",
+    "driver.docker.os_type": "linux",
+    "driver.docker.runtimes": "runc",
+    "driver.docker.version": "18.09.6",
+    "driver.docker.volumes.enabled": "true",
+    "driver.mock": "true",
+    "driver.mock_driver": "1",
+    "driver.raw_exec": "1",
+    "kernel.name": "linux",
+    "kernel.version": "4.19.56",
+    "memory.totalbytes": "16571674624",
+    "nomad.advertise.address": "127.0.0.1:4646",
+    "nomad.revision": "30da2b8f6c3aa860113c9d313c695a05eff5bb97+CHANGES",
+    "nomad.version": "1.1.0",
+    "os.name": "nixos",
+    "os.signals": "SIGTTOU,SIGTTIN,SIGSTOP,SIGSYS,SIGXCPU,SIGBUS,SIGKILL,SIGTERM,SIGIOT,SIGILL,SIGIO,SIGQUIT,SIGSEGV,SIGUSR1,SIGXFSZ,SIGCHLD,SIGUSR2,SIGURG,SIGFPE,SIGHUP,SIGINT,SIGPROF,SIGCONT,SIGALRM,SIGPIPE,SIGTRAP,SIGTSTP,SIGWINCH,SIGABRT",
+    "os.version": "\"19.03.173017.85f820d6e41 (Koi)\"",
+    "unique.cgroup.mountpoint": "/sys/fs/cgroup",
+    "unique.consul.name": "mew",
+    "unique.hostname": "mew",
+    "unique.network.ip-address": "127.0.0.1",
+    "unique.storage.bytesfree": "8273698816",
+    "unique.storage.bytestotal": "8285835264",
+    "unique.storage.volume": "tmpfs"
+  },
+  "ComputedClass": "v1:390058673753570317",
+  "CreateIndex": 6,
+  "Datacenter": "dc1",
+  "Drain": false,
+  "DrainStrategy": null,
+  "Drivers": {
+    "docker": {
+      "Attributes": {
+        "driver.docker": "true",
+        "driver.docker.bridge_ip": "172.17.0.1",
+        "driver.docker.os_type": "linux",
+        "driver.docker.runtimes": "runc",
+        "driver.docker.version": "18.09.6",
+        "driver.docker.volumes.enabled": "true"
+      },
+      "Detected": true,
+      "HealthDescription": "Healthy",
+      "Healthy": true,
+      "UpdateTime": "2019-08-26T12:22:50.762716458+02:00"
+    },
+    "exec": {
+      "Attributes": null,
+      "Detected": false,
+      "HealthDescription": "Driver must run as root",
+      "Healthy": false,
+      "UpdateTime": "2019-08-26T12:22:50.6873373+02:00"
+    },
+    "java": {
+      "Attributes": null,
+      "Detected": false,
+      "HealthDescription": "Driver must run as root",
+      "Healthy": false,
+      "UpdateTime": "2019-08-26T12:22:50.687274359+02:00"
+    },
+    "mock_driver": {
+      "Attributes": {
+        "driver.mock": "true"
+      },
+      "Detected": true,
+      "HealthDescription": "Healthy",
+      "Healthy": true,
+      "UpdateTime": "2019-08-26T12:22:50.687978919+02:00"
+    },
+    "qemu": {
+      "Attributes": null,
+      "Detected": false,
+      "HealthDescription": "",
+      "Healthy": false,
+      "UpdateTime": "2019-08-26T12:22:50.688023782+02:00"
+    },
+    "raw_exec": {
+      "Attributes": {
+        "driver.raw_exec": "true"
+      },
+      "Detected": true,
+      "HealthDescription": "Healthy",
+      "Healthy": true,
+      "UpdateTime": "2019-08-26T12:22:50.687733347+02:00"
+    },
+    "rkt": {
+      "Attributes": null,
+      "Detected": false,
+      "HealthDescription": "Driver must run as root",
+      "Healthy": false,
+      "UpdateTime": "2019-08-26T12:22:50.68796043+02:00"
+    }
+  },
+  "Events": [
+    {
+      "CreateIndex": 6,
+      "Details": null,
+      "Message": "Node registered",
+      "Subsystem": "Cluster",
+      "Timestamp": "2021-03-31T12:11:39Z"
+    },
+    {
+      "CreateIndex": 11,
+      "Details": null,
+      "Message": "Node drain strategy set",
+      "Subsystem": "Drain",
+      "Timestamp": "2021-03-31T12:12:20.213412Z"
+    },
+    {
+      "CreateIndex": 12,
+      "Details": null,
+      "Message": "Node drain complete",
+      "Subsystem": "Drain",
+      "Timestamp": "2021-03-31T12:12:20.213639Z"
+    }
+  ],
+  "HTTPAddr": "127.0.0.1:4646",
+  "HostVolumes": {
+    "certificates": {
+      "Name": "certificates",
+      "Path": "/etc/ssl/certs",
+      "ReadOnly": true
+    },
+    "prod-mysql-a": {
+      "Name": "prod-mysql-a",
+      "Path": "/data/mysql",
+      "ReadOnly": false
+    }
+  },
+  "HostNetworks" : {
+    "public": {
+      "Name": "public",
+      "CIDR": "10.199.0.200/24",
+      "ReservedPorts": "8080,8081"
+    }
+  },
+  "ID": "1ac61e33-a465-2ace-f63f-cffa1285e7eb",
+  "LastDrain": {
+    "AccessorID": "4e1b7ce1-f8aa-d7ff-09f1-55c3a0fd3988",
+    "Meta": {
+      "message": "node maintenance"
+    },
+    "StartedAt": "2021-03-31T12:12:20Z",
+    "Status": "complete",
+    "UpdatedAt": "2021-03-31T12:12:20Z"
+  },
+  "Links": {
+    "consul": "dc1.mew"
+  },
+  "Meta": {
+    "connect.log_level": "info",
+    "connect.sidecar_image": "envoyproxy/envoy:v1.11.1"
+  },
+  "ModifyIndex": 14,
+  "Name": "mew",
+  "NodeClass": "",
+  "NodePool": "default",
+  "NodeResources": {
+    "Cpu": {
+      "CpuShares": 32000
+    },
+    "Devices": [
+      {
+        "Attributes": {
+          "attrB": {
+            "Float": 10.5,
+            "Unit": "MW"
+          },
+          "attrA": {
+            "Int": 1024,
+            "Unit": "MB"
+          }
+        },
+        "Instances": [
+          {
+            "HealthDescription": "",
+            "Healthy": true,
+            "ID": "6a61929e-d572-092d-5921-156a913f8e56",
+            "Locality": {
+              "PciBusID": "77cda534-0660-2688-6c2e-ad6c62fc5ff3"
+            }
+          }
+        ],
+        "Name": "modelA",
+        "Type": "skeleton",
+        "Vendor": "hashicorp"
+      },
+      {
+        "Attributes": {
+          "attrB": {
+            "Float": 10.5,
+            "Unit": "MW"
+          },
+          "attrA": {
+            "Int": 1024,
+            "Unit": "MB"
+          }
+        },
+        "Instances": [
+          {
+            "HealthDescription": "",
+            "Healthy": true,
+            "ID": "73af5d3e-00f9-0786-9bc1-8f5ffa953f15",
+            "Locality": {
+              "PciBusID": "dbda64d1-ad25-6c7c-d3fb-798bae0581bf"
+            }
+          }
+        ],
+        "Name": "modelB",
+        "Type": "skeleton",
+        "Vendor": "hashicorp"
+      }
+    ],
+    "Disk": {
+      "DiskMB": 7890
+    },
+    "Memory": {
+      "MemoryMB": 15803
+    },
+    "Networks": [
+      {
+        "CIDR": "127.0.0.1/32",
+        "Device": "lo",
+        "DynamicPorts": null,
+        "IP": "127.0.0.1",
+        "MBits": 1000,
+        "Mode": "",
+        "ReservedPorts": null
+      },
+      {
+        "CIDR": "::1/128",
+        "Device": "lo",
+        "DynamicPorts": null,
+        "IP": "::1",
+        "MBits": 1000,
+        "Mode": "",
+        "ReservedPorts": null
+      }
+    ],
+    "NodeNetworks": [
+      {
+        "Addresses": [
+          {
+            "Address": "127.0.0.1",
+            "Alias": "default",
+            "Family": "ipv4",
+            "Gateway": "",
+            "ReservedPorts": ""
+          }
+        ],
+        "Device": "lo",
+        "MacAddress": "00:00:00:00:00:00",
+        "Mode": "host"
+      }
+    ]
+  },
+  "Reserved": {
+    "CPU": 0,
+    "Devices": null,
+    "DiskMB": 0,
+    "IOPS": 0,
+    "MemoryMB": 0,
+    "Networks": null
+  },
+  "ReservedResources": {
+    "Cpu": {
+      "CpuShares": 0
+    },
+    "Disk": {
+      "DiskMB": 0
+    },
+    "Memory": {
+      "MemoryMB": 0
+    },
+    "Networks": {
+      "ReservedHostPorts": ""
+    }
+  },
+  "Resources": {
+    "CPU": 32000,
+    "Devices": null,
+    "DiskMB": 7890,
+    "IOPS": 0,
+    "MemoryMB": 15803,
+    "Networks": [
+      {
+        "CIDR": "127.0.0.1/32",
+        "Device": "lo",
+        "DynamicPorts": null,
+        "IP": "127.0.0.1",
+        "MBits": 1000,
+        "Mode": "",
+        "ReservedPorts": null
+      },
+      {
+        "CIDR": "::1/128",
+        "Device": "lo",
+        "DynamicPorts": null,
+        "IP": "::1",
+        "MBits": 1000,
+        "Mode": "",
+        "ReservedPorts": null
+      }
+    ]
+  },
+  "SchedulingEligibility": "eligible",
+  "SecretID": "",
+  "Status": "ready",
+  "StatusDescription": "",
+  "StatusUpdatedAt": 1566814982,
+  "TLSEnabled": false
+}
