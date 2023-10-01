@@ -1,13 +1,14 @@
 import os
 from functools import partial
-from typing import Any, Optional
+from typing import Optional
 
 import httpx
 from httpx import HTTPStatusError
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
-from hc_pynomad.exceptions.base import Unauthenticated, UnknownResourceCalled
+from hc_pynomad.exceptions.base import Unauthenticated
+from hc_pynomad.exceptions.base import UnknownResourceCalled
 
 
 @dataclass
